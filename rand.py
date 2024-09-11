@@ -1,8 +1,8 @@
-import subprocess
+# rand.py (revised version)
+import random
 
+# Function to generate random numbers in a list
 def random_array(arr):
-    shuffled_num = None
     for i in range(len(arr)):
-        shuffled_num = subprocess.run(["shuf", "-i1-20", "-n1"], capture_output=True)
-        arr[i] = int(shuffled_num.stdout)
+        arr[i] = random.randint(1, 20)  # Random integer between 1 and 20
     return arr
