@@ -10,22 +10,6 @@ permissions:
   contents: read
 
 jobs:
-  lint_flake8:
-    name: Lint with Flake8
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.x"
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip flake8
-    - name: Run Flake8
-      run: |
-        flake8 hw2_debugging.py rand.py
-
   type_check_pyright:
     name: Type Check with Pyright
     runs-on: ubuntu-latest
@@ -42,8 +26,8 @@ jobs:
       run: |
         pyright hw2_debugging.py rand.py
 
-  test_pyflakes:
-    name:  pyflakes
+  lint_pyflakes:
+    name: Lint with Pyflakes
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
