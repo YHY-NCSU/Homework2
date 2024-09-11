@@ -1,0 +1,58 @@
+# This workflow will install Python dependencies, run tests and lint on specific files
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"  # Use any latest 3.x version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest pyright bandit autopep8
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Lint with flake8
+      run: |
+        # Check for Python syntax errors or undefined names on specific files
+        flake8 hw2_debugging.py rand.py --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Treat all errors as warnings with complexity and line length limits for specific files
+        flake8 hw2_debugging.py rand.py --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Run Pyright (Type Checking)
+      run: |
+        # Run Pyright for static type checking on specific files
+        pyright hw2_debugging.py rand.py
+
+    - name: Run Bandit (Security Linting)
+      run: |
+        # Run Bandit for security issues on specific files
+        bandit hw2_debugging.py rand.py
+
+    - name: Format Code with autopep8
+      run: |
+        # Run autopep8 to automatically fix PEP8 issues on specific files
+        autopep8 --in-place --aggressive --aggressive hw2_debugging.py rand.py
+
+    - name: Test with pytest
+      run: |
+        # Run pytest only on specific files
+        pytest hw2_debugging.py rand.py
