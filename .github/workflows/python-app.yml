@@ -20,19 +20,19 @@ jobs:
         python-version: "3.x"
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip pyright pyflakes autopep8 pytest
+        python -m pip install --upgrade pip pyright autopep8 pytest flake8
     - uses: actions/checkout@v4
     - name: Run Pyright
       run: |
         pyright hw2_debugging.py rand.py >> post_traces/pyright.txt
 
-    - name: Run Pyflakes
+    - name: Run flake8
       run: |
-        pyflakes hw2_debugging.py rand.py >> post_traces/pyflakes.txt
+        flake8 --verbose --tee --output-file post_traces/flake8.txt
 
     - name: Format Code
       run: |
-        autopep8 --in-place --aggressive --aggressive hw2_debugging.py rand.py
+        autopep8 --in-place --aggressive --aggressive hw2_debugging.py rand.py test.py
 
     - name: Run pytest
       run: |
