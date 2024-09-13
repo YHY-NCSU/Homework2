@@ -28,7 +28,7 @@ jobs:
 
     - name: Run Pyflakes
       run: |
-        pyflakes hw2_debugging.py rand.py >> post_traces/pyflakes_trace.txt
+        pyflakes hw2_debugging.py rand.py >> post_traces/pyflakes.txt
 
     - name: Format Code
       run: |
@@ -41,7 +41,7 @@ jobs:
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-          commit_message: Auto updated pyright traces
+          commit_message: Auto updated traces
           commit_author: Author <actions@github.com>
           commit_user_name: github-actions-bot
           commit_user_email: github-actions-bot@github.com
