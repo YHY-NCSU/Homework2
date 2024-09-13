@@ -2,3 +2,7 @@ flake8.checker            MainProcess    308 INFO     Making checkers
 flake8.main.application   MainProcess    369 INFO     Finished running
 flake8.main.application   MainProcess    370 INFO     Reporting errors
 flake8.main.application   MainProcess    370 INFO     Found a total of 0 violations and reported 0
+flake8.checker            MainProcess    342 INFO     Making checkers
+flake8.main.application   MainProcess    452 INFO     Finished running
+flake8.main.application   MainProcess    452 INFO     Reporting errors
+flake8.main.application   MainProcess    452 INFO     Found a total of 0 violations and reported 0
