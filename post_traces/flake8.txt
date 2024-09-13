@@ -15,3 +15,8 @@ flake8.main.application   MainProcess    358 INFO     Finished running
 flake8.main.application   MainProcess    358 INFO     Reporting errors
 flake8.main.application   MainProcess    358 INFO     Found a total of 1 violations and reported 1
 ./test.py:3:12: E231 missing whitespace after ','
+flake8.checker            MainProcess    204 INFO     Making checkers
+flake8.main.application   MainProcess    229 INFO     Finished running
+flake8.main.application   MainProcess    229 INFO     Reporting errors
+flake8.main.application   MainProcess    229 INFO     Found a total of 1 violations and reported 1
+./test.py:3:12: E231 missing whitespace after ','
