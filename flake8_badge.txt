@@ -1,2 +1,0 @@
-./test.py:3:12: E231 missing whitespace after ','
-1     E231 missing whitespace after ','
