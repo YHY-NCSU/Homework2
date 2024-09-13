@@ -60,9 +60,10 @@ jobs:
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-         commit_author: "${{ steps.import-gpg.outputs.name }} <${{ steps.import-gpg.outputs.email }}>"
-         commit_user_name: ${{ steps.import-gpg.outputs.name }}
-         commit_user_email: ${{ steps.import-gpg.outputs.email }}
+          commit_message: Auto updated autopep8 changes
+          commit_author: Author <actions@github.com>
+          commit_user_name: github-actions-bot
+          commit_user_email: github-actions-bot@github.com
 
   run_tests:
     name: Run Tests with pytest
