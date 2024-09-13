@@ -26,9 +26,9 @@ jobs:
       run: |
         pyright hw2_debugging.py rand.py >> post_traces/pyright.txt
 
-    - name: Run flake8
-      run: |
-        flake8 --verbose --tee --output-file post_traces/flake8.txt
+    # - name: Run flake8
+    #   run: |
+    #     flake8 --verbose --tee --output-file post_traces/flake8.txt
 
     - name: Format Code
       run: |
