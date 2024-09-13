@@ -24,7 +24,14 @@ jobs:
         python -m pip install --upgrade pip pyright
     - name: Run Pyright
       run: |
-        pyright hw2_debugging.py rand.py >> post_traces/pyright_trace.txt
+        pyright hw2_debugging.py rand.py >> post_traces/pyright.txt
+    - name: Check if updated
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+          commit_message: Auto updated pyright traces changes
+          commit_author: Author <actions@github.com>
+          commit_user_name: github-actions-bot
+          commit_user_email: github-actions-bot@github.com
 
   lint_pyflakes:
     name: Lint with Pyflakes
