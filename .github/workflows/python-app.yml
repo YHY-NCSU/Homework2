@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip pyright
     - name: Run Pyright
       run: |
-        pyright hw2_debugging.py rand.py
+        pyright hw2_debugging.py rand.py >> post_traces/pyright_trace.txt
 
   lint_pyflakes:
     name: Lint with Pyflakes
@@ -40,7 +40,7 @@ jobs:
         python -m pip install --upgrade pip pyflakes
     - name: Run Pyflakes
       run: |
-        pyflakes hw2_debugging.py rand.py
+        pyflakes hw2_debugging.py rand.py >> post_traces/pyflakes_trace.txt
 
   format_autopep8:
     name: Format with autopep8
@@ -57,6 +57,12 @@ jobs:
     - name: Format Code
       run: |
         autopep8 --in-place --aggressive --aggressive hw2_debugging.py rand.py
+    - name: Check if updated
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+         commit_author: "${{ steps.import-gpg.outputs.name }} <${{ steps.import-gpg.outputs.email }}>"
+         commit_user_name: ${{ steps.import-gpg.outputs.name }}
+         commit_user_email: ${{ steps.import-gpg.outputs.email }}
 
   run_tests:
     name: Run Tests with pytest
