@@ -22,10 +22,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip pyright
+    - uses: actions/checkout@v4
     - name: Run Pyright
       run: |
         pyright hw2_debugging.py rand.py >> post_traces/pyright.txt
-    - uses: actions/checkout@v4
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
@@ -46,10 +46,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip pyflakes
+    - uses: actions/checkout@v4
+    
     - name: Run Pyflakes
       run: |
         pyflakes hw2_debugging.py rand.py >> post_traces/pyflakes_trace.txt
-    - uses: actions/checkout@v4
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
@@ -70,10 +71,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip autopep8
+    - uses: actions/checkout@v4
+    
     - name: Format Code
       run: |
         autopep8 --in-place --aggressive --aggressive hw2_debugging.py rand.py
-    - uses: actions/checkout@v4
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
