@@ -27,6 +27,14 @@ jobs:
         flake8 --exit-zero --verbose --tee --output-file post_traces/flake8.txt
         > flake8_badge.txt
         flake8 --exit-zero --statistics --tee --output-file flake8_badge.txt
+
+    - name: Check if updated
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+          commit_message: Auto updated flake8 traces
+          commit_author: Author <actions@github.com>
+          commit_user_name: github-actions-bot
+          commit_user_email: github-actions-bot@github.com
     
     - name: Create flake8 badge
       run: 
@@ -35,8 +43,7 @@ jobs:
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-          commit_message: Auto updated traces
+          commit_message: Auto updated flake8 badge
           commit_author: Author <actions@github.com>
           commit_user_name: github-actions-bot
           commit_user_email: github-actions-bot@github.com
-
