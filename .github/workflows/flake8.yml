@@ -40,11 +40,3 @@ jobs:
     - name: Create flake8 badge
       run: 
         genbadge flake8 -i - < flake8_badge.txt -o - > flake8_badge.svg
-
-    - name: Check if updated
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-          commit_message: Auto updated flake8 badge
-          commit_author: Author <actions@github.com>
-          commit_user_name: github-actions-bot
-          commit_user_email: github-actions-bot@github.com
