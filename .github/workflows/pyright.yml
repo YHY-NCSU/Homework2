@@ -26,6 +26,7 @@ jobs:
     - name: Run Pyright
       run: |
         pyright hw2_debugging.py rand.py >> post_traces/pyright.txt
+        git pull
 
     - name: Check if updated
       uses: stefanzweifel/git-auto-commit-action@v5
